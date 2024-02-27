@@ -1,7 +1,6 @@
 package com.example.demo.ejb;
 
-import com.example.demo.objects.AR7OpenBalanceInfoDt;
-import com.example.demo.objects.Order;
+import com.example.demo.objects.*;
 import jakarta.ejb.Stateless;
 import org.springframework.stereotype.Service;
 
@@ -71,5 +70,70 @@ public class MiEJB {
 
         }
         return orderList;
+    }
+
+    public Collection<L7GetDocumentList> l7GetDocumentLists(DocumentListReq request) {
+        Collection<L7GetDocumentList> documentList = new ArrayList<>();
+
+        if (request.getBaId() == 102932451) {
+            L7GetDocumentList l7GetDocumentList = L7GetDocumentList.builder()
+                    .docId("409001289")
+                    .billDate("20240114")
+                    .invoiceAmount("4495.0")
+                    .legalInvoiceNo("1221144495")
+                    .periodCoverageStartDate("20240114")
+                    .periodCoverageEndDate("20240213")
+                    .totalAmount("8989.95")
+                    .build();
+
+            documentList.add(l7GetDocumentList);
+
+            L7GetDocumentList l7GetDocumentList2 = L7GetDocumentList.builder()
+                    .docId("397383778")
+                    .billDate("20240114")
+                    .invoiceAmount("4494.95")
+                    .legalInvoiceNo("1209527004")
+                    .periodCoverageStartDate("20240114")
+                    .periodCoverageEndDate("20240213")
+                    .totalAmount("4494.95")
+                    .build();
+
+            documentList.add(l7GetDocumentList2);
+
+            L7GetDocumentList l7GetDocumentList3 = L7GetDocumentList.builder()
+                    .docId("381620455")
+                    .billDate("20231214")
+                    .invoiceAmount("8377.51")
+                    .legalInvoiceNo("1193763663")
+                    .periodCoverageStartDate("20231114")
+                    .periodCoverageEndDate("20231213")
+                    .totalAmount("8377.51")
+                    .build();
+
+            documentList.add(l7GetDocumentList3);
+
+        }
+        return documentList;
+    }
+
+    public Collection<DocumentCharges> getDocumentCharges(DocumentChargesReq request) {
+
+        Collection<DocumentCharges> documentChargesList = new ArrayList<>();
+
+        if (request.getDocId() == 352911547) {
+            DocumentCharges documentCharges = DocumentCharges.builder()
+                    .chargeCode("CCOCHOM875156")
+                    .revenueCode("OC")
+                    .totalTaxAmt(622.69)
+                    .amount(3277.31)
+                    .build();
+
+            documentCharges.setCurrentAmount(documentCharges.getTotalTaxAmt() + documentCharges.getAmount());
+
+            documentChargesList.add(documentCharges);
+
+        }
+
+        return documentChargesList;
     }
 }

@@ -1,13 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.ejb.MiEJB;
-import com.example.demo.objects.AR7OpenBalanceInfoDt;
-import com.example.demo.objects.Order;
+import com.example.demo.objects.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -30,5 +26,15 @@ public class MiController {
     @PostMapping("/getOrderList")
     public Collection<Order> getOrderList(@RequestParam Integer customerID) {
         return miEJB.getOrderList(customerID);
+    }
+
+    @PostMapping("/l7GetDocumentList")
+    public Collection<L7GetDocumentList> l7GetDocumentList(@RequestBody DocumentListReq request) {
+        return miEJB.l7GetDocumentLists(request);
+    }
+
+    @PostMapping("/getDocumentCharges")
+    public Collection<DocumentCharges> getDocumentCharges(@RequestBody DocumentChargesReq request) {
+        return miEJB.getDocumentCharges(request);
     }
 }
