@@ -37,4 +37,9 @@ public class MiController {
     public Collection<DocumentCharges> getDocumentCharges(@RequestBody DocumentChargesReq request) {
         return miEJB.getDocumentCharges(request);
     }
+
+    @PostMapping("/getFinancialStatusInfo")
+    public FinancialAndStatusInfo getFinancialStatusInfo(@RequestBody FinancialAndStatusInfoReq request) {
+        return miEJB.getFinancialStatusInfo(request);
+    }
 }

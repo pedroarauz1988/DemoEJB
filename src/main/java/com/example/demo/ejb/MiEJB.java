@@ -123,9 +123,13 @@ public class MiEJB {
         if (request.getDocId() == 352911547) {
             DocumentCharges documentCharges = DocumentCharges.builder()
                     .chargeCode("CCOCHOM875156")
+                    .description("Telefonia")
                     .revenueCode("OC")
                     .totalTaxAmt(622.69)
                     .amount(3277.31)
+                    .periodStartDate("20230602")
+                    .periodEndDate("20230701")
+                    .amountIncludeTax(3900.00)
                     .build();
 
             documentCharges.setCurrentAmount(documentCharges.getTotalTaxAmt() + documentCharges.getAmount());
@@ -135,5 +139,24 @@ public class MiEJB {
         }
 
         return documentChargesList;
+    }
+
+    public FinancialAndStatusInfo getFinancialStatusInfo(FinancialAndStatusInfoReq request) {
+
+        if (request.getValue() == 100064329) {
+            FinancialAndStatusInfo financialAndStatusInfo = FinancialAndStatusInfo.builder()
+                    .l7CollectionStatus("PSUS")
+                    .l7LastInvDueDate("20231122")
+                    .l7LastBillInvNo("841")
+                    .l7LastInvOpenAmount("13990.01")
+                    .l7AccountId("100064329")
+                    .l7ArBalance("13990.01")
+                    .l7CollectionIndicator("Y")
+                    .l7lob("WLS")
+                    .build();
+            return financialAndStatusInfo;
+        } else {
+            return null;
+        }
     }
 }
