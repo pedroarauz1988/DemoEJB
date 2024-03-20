@@ -42,4 +42,15 @@ public class MiController {
     public FinancialAndStatusInfo getFinancialStatusInfo(@RequestBody FinancialAndStatusInfoReq request) {
         return miEJB.getFinancialStatusInfo(request);
     }
+
+    /*@PostMapping("/getIPCInfo")
+    public Collection<IPCInfo> getIPCInfo(@RequestBody IPCInfoReq request) {
+        return miEJB.getIPCInfo(request);
+    }*/
+
+    @PostMapping("/getIPCInfo")
+    public Collection<IPCInfo> getIPCInfo(@RequestBody IPCInfoReq request) {
+        return miEJB.getIPCInfo(request);
+    }
+
 }

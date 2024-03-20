@@ -159,4 +159,39 @@ public class MiEJB {
             return null;
         }
     }
+
+    public Collection<IPCInfo> getIPCInfo(IPCInfoReq request) {
+        Collection<IPCInfo> ipcInfoList = new ArrayList<>();
+
+        if (request.getCustomerID() == 500001649) {
+            IPCInfo ipcInfo = IPCInfo.builder()
+                    .AppliedReAdjustmentPer("-100.0")
+                    .ChargeCode("CCRCTEL_REC")
+                    .Previousrc("25126.05")
+                    .ReadjustedRc("0.0")
+                    .build();
+
+            ipcInfoList.add(ipcInfo);
+
+            IPCInfo ipcInfo2 = IPCInfo.builder()
+                    .AppliedReAdjustmentPer("-100.0")
+                    .ChargeCode("CCRCINET_REC")
+                    .Previousrc("-6890.76")
+                    .ReadjustedRc("0.0")
+                    .build();
+
+            ipcInfoList.add(ipcInfo2);
+
+            IPCInfo ipcInfo3 = IPCInfo.builder()
+                    .AppliedReAdjustmentPer("-100.0")
+                    .ChargeCode("CCRCTEL_REC")
+                    .Previousrc("25126.05")
+                    .ReadjustedRc("0.0")
+                    .build();
+
+            ipcInfoList.add(ipcInfo3);
+
+        }
+        return ipcInfoList;
+    }
 }
