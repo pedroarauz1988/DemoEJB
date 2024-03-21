@@ -43,14 +43,14 @@ public class MiController {
         return miEJB.getFinancialStatusInfo(request);
     }
 
-    /*@PostMapping("/getIPCInfo")
-    public Collection<IPCInfo> getIPCInfo(@RequestBody IPCInfoReq request) {
-        return miEJB.getIPCInfo(request);
-    }*/
-
     @PostMapping("/getIPCInfo")
     public Collection<IPCInfo> getIPCInfo(@RequestBody IPCInfoReq request) {
         return miEJB.getIPCInfo(request);
+    }
+
+    @PostMapping("/getCreateChargeLevelCredit")
+    public CreateChargeLevelCredit getCreateChargeLevelCredit() {
+        return miEJB.getCreditChargeLevelCredit();
     }
 
 }

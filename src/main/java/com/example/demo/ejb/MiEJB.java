@@ -194,4 +194,16 @@ public class MiEJB {
         }
         return ipcInfoList;
     }
+
+    public CreateChargeLevelCredit getCreditChargeLevelCredit() {
+
+
+            CreateChargeLevelCredit createChargeLevelCredit = CreateChargeLevelCredit.builder()
+                    .creditReason("CNCRE")
+                    .creditDescription("AR2801")
+                    .creditId("3024")
+                    .amount("100.0")
+                    .build();
+            return createChargeLevelCredit;
+    }
 }
